@@ -8,7 +8,7 @@
 - 支持类别权重、FP16（CUDA 可用时）
 - 支持 `usual / virus / all` 三种数据子集训练
 - 支持单条与批量 JSON 预测
-- 提供紫色渐变风格 Gradio UI
+- 提供 Gradio UI
 
 ## Project Structure
 
