@@ -1,0 +1,21 @@
+seed: 3407
+model_name: hfl/chinese-macbert-base
+max_length: 128
+batch_size: 32
+eval_batch_size: 64
+epochs: 10
+lr: 2.0e-5
+weight_decay: 0.01
+warmup_ratio: 0.1
+grad_accum_steps: 1
+max_grad_norm: 1.0
+fp16: true
+num_workers: 2
+
+# dataset_subset: usual | virus | all
+dataset_subset: all
+dataset_root: ./WBDataSet
+
+# You can override if needed
+output_dir: ./outputs/macbert-base-wbdataset
+save_best_only: true

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Compile Python files
+        run: |
+          python -m py_compile train.py predict.py gradio_app.py
+          python -m py_compile src/macbert_emotion_classifier/config.py
+          python -m py_compile src/macbert_emotion_classifier/constants.py
+          python -m py_compile src/macbert_emotion_classifier/data.py
+          python -m py_compile src/macbert_emotion_classifier/metrics.py
+          python -m py_compile src/macbert_emotion_classifier/predictor.py
+          python -m py_compile src/macbert_emotion_classifier/trainer.py
